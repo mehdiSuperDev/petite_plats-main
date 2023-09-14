@@ -1,3 +1,5 @@
+import recipes from "../models/recipes";
+
 class RecipeService {
   recettesTotal = [];
 
@@ -75,4 +77,4 @@ class RecipeService {
   }
 }
 
-const recipe = RecipeService();
+export default RecipeService;
