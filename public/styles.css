@@ -1,3 +1,87 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-custom-anton {
+  font-family: 'Anton', sans-serif;
+}
+
+.font-custom-manrope {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300; /* lighter */
+}
+
+.font-custom-manrope-bold {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;  /* Bold */
+}
+
+.color-black {
+  color: #1B1B1B;
+}
+
+.color-grey {
+  color: #7A7A7A;
+}
+
+.color-light-grey {
+  color: #C6C6C6;
+}
+
+.backgroundColor-yellow {
+  background-color: #FFD15B;
+}
+
+h2 {
+  @apply text-[18px] font-custom-anton;
+}
+
+h3 {
+  @apply text-[12px] font-custom-manrope-bold color-grey;
+}
+
+p {
+  @apply text-[14px] font-custom-manrope color-black;
+}
+
+.card {
+  @apply max-w-sm shadow-xl rounded-2xl;
+  box-shadow: 0 0 34px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-container {
+  @apply relative mb-4;
+}
+
+.timer {
+  @apply rounded-md absolute top-4 right-4 p-1 text-[12px] font-custom-manrope backgroundColor-yellow;
+}
+
+.content {
+  @apply flex flex-col gap-4 p-4;
+}
+  
+.card-image {
+  @apply h-[253px] w-full object-cover;
+}
+
+.card-description {
+  @apply text-base;
+}
+
+.card-elements {
+  @apply grid grid-cols-2 gap-4 p-4;
+}
+
+.item-title {
+  @apply block color-black;
+}
+
+.item-detail {
+  @apply block color-grey;
+}
+    
+  
+  
+  
+  
