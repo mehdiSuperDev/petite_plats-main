@@ -1,5 +1,6 @@
 import CardView from "../views/CardView";
 import SearchBarView from "../views/searchBarView";
+import DropdownView from "../views/DropdownView";
 
 class SearchController {
   constructor(model, recipeService) {
@@ -8,10 +9,12 @@ class SearchController {
 
     this.searchBarView = new SearchBarView();
     this.cardView = new CardView();
+    this.dropdownView = new DropdownView();
   }
 
   init() {
     this.searchBarView.initEventListeners(this.updateModel.bind(this));
+    this.dropdownView.initEventListeners(this.updateModel.bind(this));
     this.updateView();
   }
 
@@ -36,6 +39,7 @@ class SearchController {
   updateView() {
     this.searchBarView.render(this.model);
     this.cardView.render(this.model.getRecipes());
+    this.dropdownView.render(this.model.filters);
   }
 }
 

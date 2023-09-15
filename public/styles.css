@@ -153,6 +153,31 @@ p {
 }
 
 
-  
+ /* Dropdown  */
+
+.filter-container {
+  @apply flex space-x-4;
+}
+
+.dropdown-container {
+  @apply relative inline-block text-left;
+}
+
+.dropdown-button {
+  @apply inline-flex justify-between w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md;
+}
+
+.dropdown-options {
+  @apply absolute left-0 w-full mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg;
+  z-index: 1000;
+}
+
+.dropdown-option {
+  @apply cursor-pointer select-none relative px-4 py-2 text-sm text-gray-900;
+}
+
+.dropdown-option:hover {
+  @apply bg-blue-600 text-white;
+}
   
   
