@@ -1,35 +1,35 @@
 import { recipes } from "../models/Recipes";
 
 class RecipeService {
-  recettesTotal = [];
+  allRecipes = [];
 
   constructor() {
-    this.recettesTotal = recipes;
+    this.allRecipes = recipes;
   }
 
-  search(motRecherche) {
-    let resultat = this.recettesTotal.filter((recette) =>
-      recette.description.includes(motRecherche)
+  search(query) {
+    let result = this.allRecipes.filter((recipe) =>
+      recipe.description.includes(query)
     );
 
     const ingredientsSet = new Set();
     const appliancesSet = new Set();
     const ustensilsSet = new Set();
 
-    resultat.forEach((recette) => {
-      appliancesSet.add(recette.appliance);
+    result.forEach((recipe) => {
+      appliancesSet.add(recipe.appliance);
 
-      recette.ingredients.forEach((ingredient) => {
+      recipe.ingredients.forEach((ingredient) => {
         ingredientsSet.add(ingredient.ingredient);
       });
 
-      recette.ustensils.forEach((ustensil) => {
+      recipe.ustensils.forEach((ustensil) => {
         ustensilsSet.add(ustensil);
       });
     });
 
     return {
-      recipes: resultat,
+      recipes: result,
       filters: {
         ustensils: Array.from(ustensilsSet),
         ingredient: Array.from(ingredientsSet),
