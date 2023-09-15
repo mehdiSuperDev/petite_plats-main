@@ -1,13 +1,15 @@
-import RecipeService from "../services/RecipeService";
+// import RecipeService from "../services/RecipeService";
 
-const recipeService = new RecipeService();
+// const recipeService = new RecipeService();
 
-console.log(recipeService.search("coco", ""));
+// console.log(recipeService.search("coco", ""));
 
-class IndexController {
-  greet() {
-    return "hello world";
-  }
-}
+// class IndexController {
+//   greet() {
+//     return "hello world";
+//   }
+// }
 
-export default IndexController;
+// export default IndexController;
+
+console.log("indexController");

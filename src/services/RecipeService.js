@@ -1,4 +1,4 @@
-import recipes from "../models/recipes";
+import { recipes } from "../models/Recipes";
 
 class RecipeService {
   recettesTotal = [];
@@ -7,45 +7,7 @@ class RecipeService {
     this.recettesTotal = recipes;
   }
 
-  /*
-
-  INPUT: 
-    motRecerche = "coco",
-    filtre = { ustensils: ["Cuillère en bois", "louche", "couteau"],        ingredient: ["Viande hachée 1% de matière grasse","Chocolat noir"],     appliance: ["Casserole"]}
-
-
-    OUTPUT 
-    {
-        recipe : [
-            {
-                id: 21,
-                image: "Recette21.jpg",
-                name: "Spaghettis à la bolognaise",
-                ...
-            },
-            {
-                id: 22,
-                ...
-            },
-        ],
-        filtres:{ 
-            ustensils: [
-                "Cuillère en bois", 
-                "louche", 
-                "couteau"
-            ],
-            ingredient: [
-                "Viande hachée 1% de matière grasse",
-                "Chocolat noir"
-            ],     
-            appliance: [
-                "Casserole"
-            ]
-        }
-    }
-    */
-
-  search(motRecherche, filtresSelectionne) {
+  search(motRecherche) {
     let resultat = this.recettesTotal.filter((recette) =>
       recette.description.includes(motRecherche)
     );
@@ -67,8 +29,8 @@ class RecipeService {
     });
 
     return {
-      recettes: resultat,
-      filtres: {
+      recipes: resultat,
+      filters: {
         ustensils: Array.from(ustensilsSet),
         ingredient: Array.from(ingredientsSet),
         appliance: Array.from(appliancesSet),

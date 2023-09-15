@@ -1,4 +1,4 @@
-const recipes = [
+export const recipes = [
   {
     id: 1,
     image: "Recette01.jpg",
@@ -1825,5 +1825,3 @@ const recipes = [
     ustensils: ["rouleau à patisserie", "fouet"],
   },
 ];
-
-export default recipes;
