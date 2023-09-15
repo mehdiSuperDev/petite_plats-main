@@ -5,6 +5,10 @@ class RecipeModel {
     this.searchText = "";
   }
 
+  getRecipes() {
+    return this.recipes;
+  }
+
   setRecipes(recipes) {
     this.recipes = recipes;
   }

@@ -1,3 +1,4 @@
+import CardView from "../views/CardView";
 import SearchBarView from "../views/searchBarView";
 
 class SearchController {
@@ -6,6 +7,7 @@ class SearchController {
     this.recipeService = recipeService;
 
     this.searchBarView = new SearchBarView();
+    this.cardView = new CardView();
   }
 
   init() {
@@ -33,6 +35,7 @@ class SearchController {
 
   updateView() {
     this.searchBarView.render(this.model);
+    this.cardView.render(this.model.getRecipes());
   }
 }
 

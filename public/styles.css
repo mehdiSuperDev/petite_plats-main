@@ -30,8 +30,17 @@
   color: #C6C6C6;
 }
 
+.color-yellow {
+  color: #FFD15B;
+}
+
 .backgroundColor-yellow {
   background-color: #FFD15B;
+}
+
+h1 {
+  @apply text-[42px] font-custom-anton color-yellow;
+  line-height: 125%;
 }
 
 h2 {
@@ -84,11 +93,33 @@ p {
 .item-detail {
   @apply block color-grey;
 }
+
+/* Header */
+.logo {
+  @apply absolute top-4 left-4 w-[50px] h-[50px];
+}
+
+.center-elements {
+  @apply flex flex-col items-center justify-center;
+}
+
+.bg-container {
+  @apply relative bg-cover bg-center h-[667px] w-full;
+  background-image: url('images/cover.jpg');
+}
+
+/* Style pour le titre principal */
+.title-main {
+  @apply text-center py-12;
+  @apply text-5xl font-bold text-white;
+}
+
     
 /* SearchBar */
 
 .search-bar {
   @apply relative flex items-center h-[72px] max-w-4xl rounded-full shadow-xl px-8;
+  background-color: white;
 }
 
 .search-input {
@@ -114,6 +145,11 @@ p {
 
 .hidden {
   display: none;
+}
+
+.card-container {
+  @apply p-12 grid grid-cols-3 gap-12 justify-items-center justify-center;
+  background-color: #EDEDED;
 }
 
 
