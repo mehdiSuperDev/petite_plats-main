@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* global */
+
 .font-custom-anton {
   font-family: 'Anton', sans-serif;
 }
@@ -44,6 +46,8 @@ p {
   @apply text-[14px] font-custom-manrope color-black;
 }
 
+/* Card */
+
 .card {
   @apply max-w-sm shadow-xl rounded-2xl;
   box-shadow: 0 0 34px 30px rgba(0, 0, 0, 0.1);
@@ -81,7 +85,42 @@ p {
   @apply block color-grey;
 }
     
-  
+/* SearchBar */
+
+.search-bar {
+  @apply relative h-[72px] rounded-full;
+}
+
+.search-input {
+  @apply w-full h-full px-16 rounded-md text-lg;
+}
+
+.search-icon,
+.clear-icon {
+  @apply absolute top-0 bottom-0 flex items-center justify-center w-16 h-full;
+}
+
+.search-icon {
+  @apply right-0 rounded-md max-w-[48px] max-h-[48px];
+  background-color: black;
+  color: white;
+}
+
+
+
+.search-icon-inner {
+  padding: 8px;
+  color: white;
+}
+
+.clear-icon {
+  @apply right-12;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
   
   
   
