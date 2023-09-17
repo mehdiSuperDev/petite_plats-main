@@ -152,6 +152,20 @@ p {
   background-color: #EDEDED;
 }
 
+/* Menu déroulant */
+
+.dropdown-header {
+  @apply bg-orange-500 p-4 flex justify-between items-center cursor-pointer;
+}
+
+.dropdown-list {
+  @apply max-h-[200px] overflow-y-auto bg-white;
+}
+
+.dropdown-list li:hover {
+  @apply bg-yellow-500 text-white;
+}
+
 
   
   
