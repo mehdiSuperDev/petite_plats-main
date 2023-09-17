@@ -25,7 +25,7 @@ class SearchController {
   // Callback pour la searchBar
   updateModelFromSearchBar(searchText, filters) {
     const result = this.recipeService.search(searchText, filters);
-    console.log("result", result);
+    console.log("result", JSON.stringify(result));
 
     if (searchText.length >= 3) {
       this.model.setRecipes(result.recipes);
