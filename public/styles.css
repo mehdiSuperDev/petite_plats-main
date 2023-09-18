@@ -55,6 +55,10 @@ p {
   @apply text-[14px] font-custom-manrope color-black;
 }
 
+body {
+  background-color: #EDEDED;
+}
+
 /* Card */
 
 .card {
@@ -149,10 +153,17 @@ p {
 
 .card-container {
   @apply p-12 grid grid-cols-3 gap-12 justify-items-center justify-center;
-  background-color: #EDEDED;
 }
 
 /* Menu déroulant */
+
+.dropdown-container {
+  @apply p-12 flex space-x-4;
+}
+
+.dropdown {
+  @apply w-[200px];
+}
 
 .dropdown-header {
   @apply bg-orange-500 p-4 flex justify-between items-center cursor-pointer;

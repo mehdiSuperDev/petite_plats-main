@@ -9,16 +9,27 @@ class SearchController {
 
     this.searchBarView = new SearchBarView();
     this.cardView = new CardView();
-    this.dropdownView = new DropdownView("ingredient");
+
+    this.ingredientDropdownView = new DropdownView("ingredient");
+    this.applianceDropdownView = new DropdownView("appliance");
+    this.ustensilsDropdownView = new DropdownView("ustensils");
   }
 
   init() {
     this.searchBarView.initEventListeners(
       this.updateModelFromSearchBar.bind(this)
     );
-    this.dropdownView.initEventListeners(
+
+    this.ingredientDropdownView.initEventListeners(
       this.updateModelFromDropdown.bind(this)
     );
+    this.applianceDropdownView.initEventListeners(
+      this.updateModelFromDropdown.bind(this)
+    );
+    this.ustensilsDropdownView.initEventListeners(
+      this.updateModelFromDropdown.bind(this)
+    );
+
     this.updateView();
   }
 
@@ -47,7 +58,10 @@ class SearchController {
 
     this.searchBarView.render(this.model);
     this.cardView.render(filteredRecipes);
-    this.dropdownView.render(this.model);
+
+    this.ingredientDropdownView.render(this.model);
+    this.applianceDropdownView.render(this.model);
+    this.ustensilsDropdownView.render(this.model);
   }
 }
 

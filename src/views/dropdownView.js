@@ -1,8 +1,11 @@
 class DropdownView {
   constructor(dropdownType) {
     this.dropdownType = dropdownType;
-    this.dropdownHeader = document.querySelector(".dropdown-header");
-    this.dropdownList = document.querySelector(".dropdown-list");
+    const container = document.querySelector(
+      `.dropdown[data-type="${dropdownType}"]`
+    );
+    this.dropdownHeader = container.querySelector(".dropdown-header");
+    this.dropdownList = container.querySelector(".dropdown-list");
   }
 
   initEventListeners(updateModelCallback) {
