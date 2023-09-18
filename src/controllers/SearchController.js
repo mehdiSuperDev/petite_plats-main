@@ -9,7 +9,7 @@ class SearchController {
 
     this.searchBarView = new SearchBarView();
     this.cardView = new CardView();
-    this.dropdownView = new DropdownView();
+    this.dropdownView = new DropdownView("Ingredients");
   }
 
   init() {
@@ -45,15 +45,22 @@ class SearchController {
   }
 
   // Callback pour le menu déroulant
-  updateModelFromDropdown(selectedOption) {
-    console.log("%%% OPTION Selected", selectedOption);
+  updateModelFromDropdown(selectedType, selectedValue) {
+    this.model.setActiveFilters(selectedType, selectedValue);
+    console.log("%%%-1 SelectedType: ", selectedType);
+    console.log("%%%-2 SelectedValue: ", selectedValue);
+
+    // this.model.setActiveFilters(selectedFilters);
+    // console.log("%%% OPTION Selected", selectedFilters);
 
     this.updateView();
   }
 
   updateView() {
+    const filteredRecipes = this.model.getRecipes();
+
     this.searchBarView.render(this.model);
-    this.cardView.render(this.model.getRecipes());
+    this.cardView.render(filteredRecipes);
     this.dropdownView.render(this.model);
   }
 }

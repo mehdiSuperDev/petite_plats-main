@@ -1,5 +1,6 @@
 class DropdownView {
-  constructor() {
+  constructor(dropdownType) {
+    this.dropdownType = dropdownType;
     this.dropdownHeader = document.querySelector(".dropdown-header");
     this.dropdownList = document.querySelector(".dropdown-list");
   }
@@ -14,17 +15,23 @@ class DropdownView {
 
     this.dropdownList.addEventListener("click", (event) => {
       if (event.target.tagName === "LI") {
-        const selectedIngredient = event.target.textContent;
-        updateModelCallback(selectedIngredient);
+        const selectedType = event.target.getAttribute("data-type");
+        const selectedValue = event.target.textContent;
+
+        updateModelCallback(selectedType, selectedValue);
+
         this.dropdownList.classList.add("hidden");
       }
     });
   }
 
   render(model) {
-    const ingredients = model.filters.ingredient;
-    this.dropdownList.innerHTML = ingredients
-      .map((ingredient) => `<li class="dropdown-item">${ingredient}</li>`)
+    const items = model.filters[this.dropdownType];
+    this.dropdownList.innerHTML = items
+      .map(
+        (item) =>
+          `<li class="dropdown-item" data-type="${this.dropdownType}">${item}</li>`
+      )
       .join("");
   }
 }
