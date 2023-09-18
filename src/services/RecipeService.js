@@ -29,7 +29,7 @@ class RecipeService {
     });
 
     return {
-      recipes: result,
+      recipes: !query ? this.allRecipes : result,
       filters: {
         ustensils: Array.from(ustensilsSet),
         ingredient: Array.from(ingredientsSet),

@@ -166,7 +166,8 @@ body {
 }
 
 .dropdown-header {
-  @apply bg-orange-500 p-4 flex justify-between items-center cursor-pointer;
+  @apply font-custom-manrope p-4 rounded-xl flex justify-between items-center cursor-pointer;
+  background-color: white;
 }
 
 .dropdown-list {

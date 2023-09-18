@@ -30,17 +30,20 @@ class SearchController {
       this.updateModelFromDropdown.bind(this)
     );
 
+    this.updateModelFromSearchBar("");
+
     this.updateView();
   }
 
-  updateModelFromSearchBar(searchText, filters) {
-    const result = this.recipeService.search(searchText, filters);
+  updateModelFromSearchBar(searchText) {
     if (searchText.length >= 3) {
+      const result = this.recipeService.search(searchText);
       this.model.setRecipes(result.recipes);
       this.model.setFilters(result.filters);
     } else {
-      this.model.setRecipes([]);
-      this.model.setFilters({ ingredient: [], appliance: [], ustensils: [] });
+      const result = this.recipeService.search("");
+      this.model.setRecipes(result.recipes);
+      this.model.setFilters(result.filters);
     }
     this.model.setSearchText(searchText);
     this.updateView();
