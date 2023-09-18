@@ -5,7 +5,7 @@
     <title>Ma page de test</title>
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton:wght@300;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -47,35 +47,41 @@
     </div>
 
     <!-- Menu déroulant -->
-    <div class="dropdown-container">
-      <div class="dropdown" data-type="ingredient">
-        <div class="dropdown-header">
-          <span class="title">Ingrédients</span>
-          <i class="fas fa-chevron-down chevron"></i>
+    <div class="menu-container">
+      <div class="dropdown-container">
+        <div class="dropdown" data-type="ingredient">
+          <div class="dropdown-header">
+            <span class="title">Ingrédients</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </div>
+          <ul class="dropdown-list hidden">
+            <!-- Injection des options -->
+          </ul>
         </div>
-        <ul class="dropdown-list hidden">
-          <!-- Injection des options -->
-        </ul>
+
+        <div class="dropdown" data-type="appliance">
+          <div class="dropdown-header">
+            <span class="title">Appareils</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </div>
+          <ul class="dropdown-list hidden">
+            <!-- Injection des options -->
+          </ul>
+        </div>
+
+        <div class="dropdown" data-type="ustensils">
+          <div class="dropdown-header">
+            <span class="title">Ustensiles</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </div>
+          <ul class="dropdown-list hidden">
+            <!-- Injection des options -->
+          </ul>
+        </div>
       </div>
 
-      <div class="dropdown" data-type="appliance">
-        <div class="dropdown-header">
-          <span class="title">Appareils</span>
-          <i class="fas fa-chevron-down chevron"></i>
-        </div>
-        <ul class="dropdown-list hidden">
-          <!-- Injection des options -->
-        </ul>
-      </div>
-
-      <div class="dropdown" data-type="ustensils">
-        <div class="dropdown-header">
-          <span class="title">Ustensiles</span>
-          <i class="fas fa-chevron-down chevron"></i>
-        </div>
-        <ul class="dropdown-list hidden">
-          <!-- Injection des options -->
-        </ul>
+      <div class="counter">
+        <!-- Injection du compteur -->
       </div>
     </div>
 

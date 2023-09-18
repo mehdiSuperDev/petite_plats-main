@@ -8,6 +8,11 @@
   font-family: 'Anton', sans-serif;
 }
 
+.font-custom-anton-bold {
+  font-family: 'Anton', sans-serif;
+  font-weight: 700;  /* Bold */
+}
+
 .font-custom-manrope {
   font-family: 'Manrope', sans-serif;
   font-weight: 300; /* lighter */
@@ -158,7 +163,7 @@ body {
 /* Menu déroulant */
 
 .dropdown-container {
-  @apply p-12 flex space-x-4;
+  @apply flex space-x-4;
 }
 
 .dropdown {
@@ -176,6 +181,16 @@ body {
 
 .dropdown-list li:hover {
   @apply bg-yellow-500 text-white;
+}
+
+/* Compteur */
+
+.menu-container {
+  @apply p-12 flex  items-center place-content-between;
+}
+
+.counter {
+  @apply text-[21px] font-custom-anton-bold color-black;
 }
 
 

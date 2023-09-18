@@ -1,6 +1,7 @@
 import CardView from "../views/CardView";
 import SearchBarView from "../views/searchBarView";
 import DropdownView from "../views/DropdownView";
+import CounterView from "../views/counterView";
 
 class SearchController {
   constructor(model, recipeService) {
@@ -13,6 +14,8 @@ class SearchController {
     this.ingredientDropdownView = new DropdownView("ingredient");
     this.applianceDropdownView = new DropdownView("appliance");
     this.ustensilsDropdownView = new DropdownView("ustensils");
+
+    this.counterView = new CounterView("1500");
   }
 
   init() {
@@ -65,6 +68,8 @@ class SearchController {
     this.ingredientDropdownView.render(this.model);
     this.applianceDropdownView.render(this.model);
     this.ustensilsDropdownView.render(this.model);
+
+    this.counterView.render(filteredRecipes.length);
   }
 }
 
