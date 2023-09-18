@@ -11,12 +11,17 @@ class DropdownView {
       const chevron = this.dropdownHeader.querySelector(".chevron");
       chevron.classList.toggle("fa-chevron-down");
       chevron.classList.toggle("fa-chevron-up");
+
+      console.log("click on list");
     });
 
     this.dropdownList.addEventListener("click", (event) => {
       if (event.target.tagName === "LI") {
         const selectedType = event.target.getAttribute("data-type");
         const selectedValue = event.target.textContent;
+
+        console.log("selectedType", selectedType);
+        console.log("selectedValue", selectedValue);
 
         updateModelCallback(selectedType, selectedValue);
 

@@ -2,26 +2,33 @@ class RecipeModel {
   constructor() {
     this.recipes = [];
     this.filters = { ingredient: [], appliance: [], ustensils: [] };
-    this.activeFilters = { ingredient: [], appliance: [], ustensils: [] };
+    this.tags = { ingredient: [], appliance: [], ustensils: [] };
     this.searchText = "";
   }
 
+  // Récupérer les recettes filtrées
   getRecipes() {
-    // toutes les recettes du modèle
     const allRecipes = [...this.recipes];
 
-    // les filtres actifs du modèle
-    const { ingredient, appliance, ustensils } = this.activeFilters;
+    const { ingredient, appliance, ustensils } = this.tags;
 
-    // Filtrer les recettes en fonction des filtres actifs
+    console.log("allRecipes", allRecipes);
+    console.log("filters", this.filters);
+    console.log("tags", this.tags);
+
     const filteredRecipes = allRecipes.filter((recipe) => {
-      const ingredientsMatch = ingredient.every((ing) =>
-        recipe.ingredients.includes(ing)
-      );
-      const applianceMatch = appliance.every((app) => recipe.appliance === app);
-      const ustensilsMatch = ustensils.every((ut) =>
-        recipe.ustensils.includes(ut)
-      );
+      const ingredientsMatch =
+        ingredient.length === 0 ||
+        ingredient.every((ing) =>
+          recipe.ingredients.some((rIng) => rIng.ingredient.includes(ing))
+        );
+
+      const applianceMatch =
+        appliance.length === 0 || appliance.includes(recipe.appliance);
+
+      const ustensilsMatch =
+        ustensils.length === 0 ||
+        ustensils.every((ut) => recipe.ustensils.includes(ut));
 
       return ingredientsMatch && applianceMatch && ustensilsMatch;
     });
@@ -29,33 +36,39 @@ class RecipeModel {
     return filteredRecipes;
   }
 
+  // Mettre à jour les recettes dans le modèle
   setRecipes(recipes) {
     this.recipes = recipes;
   }
 
+  // Mettre à jour les filtres dans le modèle
   setFilters(filters) {
     this.filters = filters;
   }
 
-  setActiveFilters(type, value) {
-    if (this.activeFilters[type]) {
-      this.activeFilters[type].push(value);
+  // Mettre à jour les tags actifs dans le modèle
+  setTags(type, value) {
+    if (this.tags[type]) {
+      this.tags[type].push(value);
     }
   }
 
-  removeActiveFilter(type, value) {
-    if (this.activeFilters[type]) {
-      const index = this.activeFilters[type].indexOf(value);
+  // Supprimer un tag actif du modèle
+  removeTag(type, value) {
+    if (this.tags[type]) {
+      const index = this.tags[type].indexOf(value);
       if (index > -1) {
-        this.activeFilters[type].splice(index, 1);
+        this.tags[type].splice(index, 1);
       }
     }
   }
 
-  getActiveFilters() {
-    return this.activeFilters;
+  // Récupérer les tags actifs
+  getTags() {
+    return this.tags;
   }
 
+  // Mettre à jour le texte de recherche dans le modèle
   setSearchText(text) {
     this.searchText = text;
   }

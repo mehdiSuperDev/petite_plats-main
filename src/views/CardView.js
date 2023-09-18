@@ -9,9 +9,6 @@ class CardView {
     return `
         <div class="card">
           <div class="card-image-container">
-            <img src="./photos/${
-              recipe.image
-            }}" alt="Image" class="card-image" />
             <div class="timer">${recipe.time}min</div>
           </div>
           <div class="content">
