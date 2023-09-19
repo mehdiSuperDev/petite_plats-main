@@ -52,8 +52,38 @@ class SearchController {
     this.updateView();
   }
 
+  createTag(type, value) {
+    const tagHTML = `
+      <div class="tag-view" data-type="${type}" data-value="${value}">
+        <span class="tag-content">${value}</span>
+        <span class="tag-close space-x-4 cursor-pointer">X</span>
+      </div>
+    `;
+
+    const tagContainer = document.querySelector(".tag-container");
+    tagContainer.insertAdjacentHTML("beforeend", tagHTML);
+
+    const tagElement = tagContainer.lastElementChild;
+    const tagCloseBtn = tagElement.querySelector(".tag-close");
+
+    tagCloseBtn.addEventListener("click", () => {
+      this.removeTag(type, value);
+    });
+  }
+
+  removeTag(type, value) {
+    this.model.removeTag(type, value);
+    const tagContainer = document.querySelector(".tag-container");
+    const tagToRemove = tagContainer.querySelector(
+      `[data-type="${type}"][data-value="${value}"]`
+    );
+    tagToRemove.remove();
+    this.updateView();
+  }
+
   updateModelFromDropdown(selectedType, selectedValue) {
     this.model.setTags(selectedType, selectedValue);
+    this.createTag(selectedType, selectedValue);
     this.updateView();
   }
 

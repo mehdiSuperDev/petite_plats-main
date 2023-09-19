@@ -193,6 +193,20 @@ body {
   @apply text-[21px] font-custom-anton-bold color-black;
 }
 
+/* Tags */
+
+.tag-container {
+  @apply px-12;
+}
+
+.tag-view {
+  @apply inline-flex items-center p-4 m-1 rounded-xl h-[53px] backgroundColor-yellow color-black;
+}
+
+.tag-content {
+  @apply pr-12;
+}
+
 
   
   
