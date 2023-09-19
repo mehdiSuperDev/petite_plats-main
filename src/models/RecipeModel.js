@@ -4,6 +4,35 @@ class RecipeModel {
     this.filters = { ingredient: [], appliance: [], ustensils: [] };
     this.tags = { ingredient: [], appliance: [], ustensils: [] };
     this.searchText = "";
+    this.localFilters = { ingredient: [], appliance: [], utensils: [] };
+  }
+
+  setLocalFilters(filters) {
+    this.localFilters = filters;
+  }
+
+  updateFiltersFromFilteredRecipes(filteredRecipes) {
+    let updatedFilters = { ingredient: [], appliance: [], ustensils: [] };
+
+    filteredRecipes.forEach((recipe) => {
+      recipe.ingredients.forEach((ingredient) => {
+        if (!updatedFilters.ingredient.includes(ingredient.ingredient)) {
+          updatedFilters.ingredient.push(ingredient.ingredient);
+        }
+      });
+
+      if (!updatedFilters.appliance.includes(recipe.appliance)) {
+        updatedFilters.appliance.push(recipe.appliance);
+      }
+
+      recipe.ustensils.forEach((ustensil) => {
+        if (!updatedFilters.ustensils.includes(ustensil)) {
+          updatedFilters.ustensils.push(ustensil);
+        }
+      });
+    });
+
+    this.setFilters(updatedFilters);
   }
 
   // Mettre à jour les recettes dans le modèle et les filtres associés
@@ -64,11 +93,6 @@ class RecipeModel {
     return filteredRecipes;
   }
 
-  // Mettre à jour les recettes dans le modèle
-  // setRecipes(recipes) {
-  //   this.recipes = recipes;
-  // }
-
   // Mettre à jour les filtres dans le modèle
   setFilters(filters) {
     this.filters = filters;
@@ -79,10 +103,10 @@ class RecipeModel {
     if (this.tags[type]) {
       this.tags[type].push(value);
     }
-    console.log("Tags après ajout:", this.tags);
+    const filteredRecipes = this.getRecipes();
+    this.updateFiltersFromFilteredRecipes(filteredRecipes);
   }
 
-  // Supprimer un tag actif du modèle
   removeTag(type, value) {
     if (this.tags[type]) {
       const index = this.tags[type].indexOf(value);
@@ -90,6 +114,8 @@ class RecipeModel {
         this.tags[type].splice(index, 1);
       }
     }
+    const filteredRecipes = this.getRecipes();
+    this.updateFiltersFromFilteredRecipes(filteredRecipes);
   }
 
   // Récupérer les tags actifs

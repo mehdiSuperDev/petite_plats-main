@@ -43,8 +43,10 @@ class SearchController {
       searchText.length >= 3
         ? this.recipeService.search(searchText)
         : this.recipeService.search("");
+
     this.model.setRecipes(result.recipes);
     this.model.setSearchText(searchText);
+    this.model.setLocalFilters(result.filters);
     this.updateView();
   }
 
@@ -71,24 +73,34 @@ class SearchController {
 
   removeTag(type, value) {
     this.model.removeTag(type, value);
+
     const tagContainer = document.querySelector(".tag-container");
     const tagToRemove = tagContainer.querySelector(
       `[data-type="${type}"][data-value="${value}"]`
     );
     tagToRemove.remove();
+
+    const filteredRecipes = this.model.getRecipes();
+    this.model.updateFiltersFromFilteredRecipes(filteredRecipes);
+
     this.updateView();
   }
 
   updateModelFromDropdown(selectedType, selectedValue) {
     this.model.setTags(selectedType, selectedValue);
     this.createTag(selectedType, selectedValue);
-    this.model.updateFilters();
+
+    const filteredRecipes = this.model.getRecipes();
+    this.model.updateFiltersFromFilteredRecipes(filteredRecipes);
+
     this.updateView();
-    console.log("Appel à updateFilters effectué");
   }
 
   updateView() {
     console.log("Mise à jour de la vue");
+    console.log("%%% Model BEFORE state updateView:");
+    console.log("", JSON.stringify(this.model));
+
     const filteredRecipes = this.model.getRecipes();
     this.searchBarView.render(this.model);
     this.cardView.render(filteredRecipes);
@@ -98,7 +110,8 @@ class SearchController {
     this.ustensilsDropdownView.render(this.model);
 
     this.counterView.render(filteredRecipes.length);
-    // console.log("Model state after updateView:", JSON.stringify(this.model));
+    console.log("%%% Model AFTER before updateView:");
+    console.log("", JSON.stringify(this.model));
   }
 }
 

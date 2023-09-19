@@ -81,7 +81,7 @@ class DropdownView {
 
   render(model) {
     const items = model.filters[this.dropdownType];
-    console.log(`Items from model in render:`, items);
+    // console.log(`Items from model in render:`, items);
     this.dropdownOptionsList.innerHTML = items
       .map(
         (item) =>
