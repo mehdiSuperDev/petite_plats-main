@@ -35,9 +35,9 @@ class DropdownView {
   initEventListeners(updateModelCallback) {
     this.dropdownHeader.addEventListener("click", () => {
       this.dropdownList.classList.toggle("hidden");
-      const chevron = this.dropdownHeader.querySelector(".chevron");
-      chevron.classList.toggle("fa-chevron-down");
-      chevron.classList.toggle("fa-chevron-up");
+      this.toggleChevron();
+
+      this.clearSearchBar();
     });
 
     this.dropdownList.addEventListener("click", (event) => {
@@ -45,13 +45,14 @@ class DropdownView {
         const selectedType = event.target.getAttribute("data-type");
         const selectedValue = event.target.textContent;
 
-        // Toggle chevron to down position explicitly
         const chevron = this.dropdownHeader.querySelector(".chevron");
         chevron.classList.remove("fa-chevron-up");
         chevron.classList.add("fa-chevron-down");
 
         updateModelCallback(selectedType, selectedValue);
+
         this.dropdownList.classList.add("hidden");
+        this.clearSearchBar();
       }
     });
 
