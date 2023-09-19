@@ -6,15 +6,43 @@ class RecipeModel {
     this.searchText = "";
   }
 
+  // Mettre à jour les recettes dans le modèle et les filtres associés
+  setRecipes(recipes) {
+    this.recipes = recipes;
+    this.updateFilters();
+  }
+
+  // Mettre à jour les filtres en fonction des recettes actuelles
+  updateFilters() {
+    const ingredientsSet = new Set();
+    const appliancesSet = new Set();
+    const ustensilsSet = new Set();
+
+    this.recipes.forEach((recipe) => {
+      appliancesSet.add(recipe.appliance);
+
+      recipe.ingredients.forEach((ingredient) => {
+        ingredientsSet.add(ingredient.ingredient);
+      });
+
+      recipe.ustensils.forEach((ustensil) => {
+        ustensilsSet.add(ustensil);
+      });
+    });
+
+    this.filters = {
+      ustensils: Array.from(ustensilsSet),
+      ingredient: Array.from(ingredientsSet),
+      appliance: Array.from(appliancesSet),
+    };
+    console.log("Filtres après mise à jour:", this.filters);
+  }
+
   // Récupérer les recettes filtrées
   getRecipes() {
     const allRecipes = [...this.recipes];
 
     const { ingredient, appliance, ustensils } = this.tags;
-
-    console.log("allRecipes", allRecipes);
-    console.log("filters", this.filters);
-    console.log("tags", this.tags);
 
     const filteredRecipes = allRecipes.filter((recipe) => {
       const ingredientsMatch =
@@ -37,9 +65,9 @@ class RecipeModel {
   }
 
   // Mettre à jour les recettes dans le modèle
-  setRecipes(recipes) {
-    this.recipes = recipes;
-  }
+  // setRecipes(recipes) {
+  //   this.recipes = recipes;
+  // }
 
   // Mettre à jour les filtres dans le modèle
   setFilters(filters) {
@@ -51,6 +79,7 @@ class RecipeModel {
     if (this.tags[type]) {
       this.tags[type].push(value);
     }
+    console.log("Tags après ajout:", this.tags);
   }
 
   // Supprimer un tag actif du modèle

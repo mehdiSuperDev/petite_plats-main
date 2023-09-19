@@ -39,15 +39,11 @@ class SearchController {
   }
 
   updateModelFromSearchBar(searchText) {
-    if (searchText.length >= 3) {
-      const result = this.recipeService.search(searchText);
-      this.model.setRecipes(result.recipes);
-      this.model.setFilters(result.filters);
-    } else {
-      const result = this.recipeService.search("");
-      this.model.setRecipes(result.recipes);
-      this.model.setFilters(result.filters);
-    }
+    const result =
+      searchText.length >= 3
+        ? this.recipeService.search(searchText)
+        : this.recipeService.search("");
+    this.model.setRecipes(result.recipes);
     this.model.setSearchText(searchText);
     this.updateView();
   }
@@ -69,6 +65,8 @@ class SearchController {
     tagCloseBtn.addEventListener("click", () => {
       this.removeTag(type, value);
     });
+
+    this.updateView();
   }
 
   removeTag(type, value) {
@@ -84,14 +82,14 @@ class SearchController {
   updateModelFromDropdown(selectedType, selectedValue) {
     this.model.setTags(selectedType, selectedValue);
     this.createTag(selectedType, selectedValue);
+    this.model.updateFilters();
     this.updateView();
+    console.log("Appel à updateFilters effectué");
   }
 
   updateView() {
+    console.log("Mise à jour de la vue");
     const filteredRecipes = this.model.getRecipes();
-
-    console.log("filteredRecipes", filteredRecipes);
-
     this.searchBarView.render(this.model);
     this.cardView.render(filteredRecipes);
 
@@ -100,6 +98,7 @@ class SearchController {
     this.ustensilsDropdownView.render(this.model);
 
     this.counterView.render(filteredRecipes.length);
+    // console.log("Model state after updateView:", JSON.stringify(this.model));
   }
 }
 

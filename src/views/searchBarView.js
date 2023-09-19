@@ -24,11 +24,7 @@ class SearchBarView {
   }
 
   // Méthode pour mettre à jour la vue
-  //Juste pour l'exemple
   render(model) {
-    //debug
-    // console.log("searchText dans SBV", model.searchText);
-
     if (model.searchText.length == 0) {
       this.clearIcon.classList.add("hidden");
     } else {
