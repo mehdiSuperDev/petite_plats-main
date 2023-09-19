@@ -180,11 +180,25 @@ body {
 }
 
 .dropdown-list {
-  @apply p-4 pt-12 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl;
+  @apply p-4 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl;
 }
 
 .dropdown-list li:hover {
-  @apply bg-yellow-500 text-white;
+  @apply backgroundColor-yellow color-black;
+}
+
+.search-bar-container {
+  @apply relative;
+}
+
+.clear-icon-dropdown {
+  @apply absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer;
+}
+
+.search-bar-dropdown {
+  @apply p-2 w-full;
+  outline: 2px solid #C6C6C6;
+  /* DEBUG */
 }
 
 /* Compteur */
