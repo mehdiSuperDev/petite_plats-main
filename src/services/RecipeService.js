@@ -30,14 +30,14 @@ class RecipeService {
     const ustensilsSet = new Set();
 
     result.forEach((recipe) => {
-      appliancesSet.add(recipe.appliance.toLowerCase());
+      appliancesSet.add(recipe.appliance);
 
       recipe.ingredients.forEach((ingredient) => {
-        ingredientsSet.add(ingredient.ingredient.toLowerCase());
+        ingredientsSet.add(ingredient.ingredient);
       });
 
       recipe.ustensils.forEach((ustensil) => {
-        ustensilsSet.add(ustensil.toLowerCase());
+        ustensilsSet.add(ustensil);
       });
     });
 
