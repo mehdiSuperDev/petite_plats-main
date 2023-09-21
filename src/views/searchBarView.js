@@ -1,3 +1,5 @@
+import { escapeHTML } from "../helpers/utils";
+
 class SearchBarView {
   constructor() {
     // Références aux éléments du DOM
@@ -10,7 +12,8 @@ class SearchBarView {
   // Méthode pour initialiser les écouteurs d'événements
   initEventListeners(updateModelCallback) {
     this.searchInput.addEventListener("input", (e) => {
-      updateModelCallback(e.target.value, {});
+      const safeValue = escapeHTML(e.target.value);
+      updateModelCallback(safeValue, {});
     });
 
     this.clearIcon.addEventListener("click", () => {

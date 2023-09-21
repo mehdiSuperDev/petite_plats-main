@@ -1,3 +1,5 @@
+import { escapeHTML } from "../helpers/utils";
+
 class DropdownView {
   constructor(dropdownType) {
     this.dropdownType = dropdownType;
@@ -57,7 +59,7 @@ class DropdownView {
     });
 
     this.searchBarDropdown.addEventListener("input", (event) => {
-      const query = event.target.value.toLowerCase();
+      const query = escapeHTML(event.target.value.toLowerCase());
       if (query.length > 0) {
         this.clearIcon.classList.remove("hidden");
       } else {
