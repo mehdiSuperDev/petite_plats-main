@@ -161,7 +161,7 @@ body {
 }
 
 .card-container {
-  @apply p-12 grid grid-cols-3 gap-12 justify-items-center justify-center;
+  @apply p-12 grid grid-cols-3 gap-12 justify-items-center justify-center pt-0;
 }
 
 /* Menu déroulant */
