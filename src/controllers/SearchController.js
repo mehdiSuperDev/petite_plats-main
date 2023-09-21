@@ -97,10 +97,6 @@ class SearchController {
   }
 
   updateView() {
-    console.log("Mise à jour de la vue");
-    console.log("%%% Model BEFORE state updateView:");
-    console.log("", JSON.stringify(this.model));
-
     const filteredRecipes = this.model.getRecipes();
     this.searchBarView.render(this.model);
     this.cardView.render(filteredRecipes);
@@ -110,8 +106,6 @@ class SearchController {
     this.ustensilsDropdownView.render(this.model);
 
     this.counterView.render(filteredRecipes.length);
-    console.log("%%% Model AFTER before updateView:");
-    console.log("", JSON.stringify(this.model));
   }
 }
 

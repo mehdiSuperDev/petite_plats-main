@@ -64,7 +64,6 @@ class RecipeModel {
       ingredient: Array.from(ingredientsSet),
       appliance: Array.from(appliancesSet),
     };
-    console.log("Filtres après mise à jour:", this.filters);
   }
 
   // Récupérer les recettes filtrées
