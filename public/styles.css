@@ -127,12 +127,12 @@ body {
 /* SearchBar */
 
 .search-bar {
-  @apply relative flex items-center h-[72px] max-w-4xl rounded-full shadow-xl px-8;
+  @apply relative flex items-center h-[72px] w-[70%] rounded-xl shadow-xl px-8;
   background-color: white;
 }
 
 .search-input {
-  @apply flex-grow h-full rounded-full text-lg border-black focus:outline-none bg-transparent;
+  @apply flex-grow h-full rounded-xl text-lg border-black focus:outline-none bg-transparent;
 }
 
 .icon-container {
@@ -140,7 +140,7 @@ body {
 }
 
 .search-icon:hover {
-  @apply backgroundColor-yellow color-black;
+  @apply backgroundColor-yellow color-black cursor-pointer;
 }
 
 .search-icon,
