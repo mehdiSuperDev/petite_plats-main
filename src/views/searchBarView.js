@@ -7,6 +7,7 @@ class SearchBarView {
     this.searchInput = document.querySelector(".search-input");
     this.clearIcon = document.querySelector(".clear-icon");
     this.searchIcon = document.querySelector(".search-icon");
+    this.errorText = document.querySelector(".search-bar-error");
   }
 
   // Méthode pour initialiser les écouteurs d'événements
@@ -30,8 +31,18 @@ class SearchBarView {
   render(model) {
     if (model.searchText.length == 0) {
       this.clearIcon.classList.add("hidden");
+      this.errorText.classList.add("hidden");
     } else {
       this.clearIcon.classList.remove("hidden");
+
+      // Gestion du message d'erreur
+      const filteredRecipes = model.getRecipes();
+      if (filteredRecipes.length === 0) {
+        this.errorText.classList.remove("hidden");
+        this.errorText.textContent = `Aucune recette ne contient ‘${model.searchText}’ vous pouvez chercher « tarte aux pommes », « poisson », etc...`;
+      } else {
+        this.errorText.classList.add("hidden");
+      }
     }
   }
 }

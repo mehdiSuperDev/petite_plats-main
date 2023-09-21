@@ -208,6 +208,14 @@ body {
   /* DEBUG */
 }
 
+.search-bar-error {
+  @apply font-custom-anton-bold p-4 m-4 rounded-2xl;
+  color: red;
+  background-color: white;
+  opacity: 0.8;
+  outline: 2px solid red;
+}
+
 /* Compteur */
 
 .menu-container {
