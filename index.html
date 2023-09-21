@@ -16,11 +16,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <link rel="stylesheet" href="public/styles.css" />
   </head>
   <body>
-    <div class="bg-container center-elements">
+    <div class="bg-container">
       <!-- Logo -->
-      <img src="images/Logo.png" alt="Logo" class="logo" />
+      <img src="public/images/Logo.png" alt="Logo" class="logo" />
 
       <!-- Titre principal -->
       <div class="title-main">
@@ -131,5 +132,17 @@
     <div class="card-container">
       <!-- Injection des cartes -->
     </div>
+
+    <script src="src/models/Recipes.js"></script>
+    <script src="src/models/RecipeModel.js"></script>
+    <script src="src/services/RecipeService.js"></script>
+    <script src="src/helpers/utils.js"></script>
+    <script src="src/views/CardView.js"></script>
+    <script src="src/views/counterView.js"></script>
+    <script src="src/views/dropdownView.js"></script>
+    <script src="src/views/searchBarView.js"></script>
+    <script src="src/views/tagsView.js"></script>
+    <script src="src/controllers/SearchController.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>

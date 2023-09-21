@@ -7,5 +7,3 @@ class CounterView {
     this.counter.textContent = `${number} recettes`;
   }
 }
-
-export default CounterView;

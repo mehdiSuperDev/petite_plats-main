@@ -120,7 +120,7 @@ body {
 }
 
 .bg-container {
-  @apply relative bg-cover bg-center h-[667px] w-full;
+  @apply relative bg-cover bg-center h-[667px] w-full center-elements;
   background-image: url('images/cover.jpg');
 }
 

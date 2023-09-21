@@ -1,8 +1,3 @@
-import CardView from "../views/CardView";
-import SearchBarView from "../views/searchBarView";
-import DropdownView from "../views/dropdownView";
-import CounterView from "../views/counterView";
-
 class SearchController {
   constructor(model, recipeService) {
     this.model = model;
@@ -109,4 +104,4 @@ class SearchController {
   }
 }
 
-export default SearchController;
+// export default SearchController;

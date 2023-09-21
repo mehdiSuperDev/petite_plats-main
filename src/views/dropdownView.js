@@ -1,5 +1,3 @@
-import { escapeHTML } from "../helpers/utils";
-
 class DropdownView {
   constructor(dropdownType) {
     this.dropdownType = dropdownType;
@@ -92,5 +90,3 @@ class DropdownView {
       .join("");
   }
 }
-
-export default DropdownView;

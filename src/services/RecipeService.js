@@ -1,4 +1,4 @@
-import { recipes } from "../models/Recipes";
+// import { recipes } from "../models/Recipes";
 
 class RecipeService {
   allRecipes = [];
@@ -30,5 +30,3 @@ class RecipeService {
     };
   }
 }
-
-export default RecipeService;

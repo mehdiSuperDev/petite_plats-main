@@ -127,5 +127,3 @@ class RecipeModel {
     this.searchText = text;
   }
 }
-
-export default RecipeModel;

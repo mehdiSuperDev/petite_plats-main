@@ -23,5 +23,3 @@ class TagsView {
     });
   }
 }
-
-export default TagsView;

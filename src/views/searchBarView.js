@@ -1,5 +1,3 @@
-import { escapeHTML } from "../helpers/utils";
-
 class SearchBarView {
   constructor() {
     // Références aux éléments du DOM
@@ -46,5 +44,3 @@ class SearchBarView {
     }
   }
 }
-
-export default SearchBarView;

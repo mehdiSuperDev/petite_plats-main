@@ -40,5 +40,3 @@ class CardView {
     this.cardContainer.innerHTML = cardsHTML;
   }
 }
-
-export default CardView;
