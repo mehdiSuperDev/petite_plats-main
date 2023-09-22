@@ -11,7 +11,7 @@ class CardView {
           <div class="card-image-container  relative mb-4">
           <img src="./public/images/${
             recipe.image
-          }" alt="Image" class="card-image" />
+          }" alt="Image" class="card-image" loading="lazy"/>
             <div class="timer rounded-md absolute top-4 right-4 p-1 text-[12px] font-custom-manrope backgroundColor-yellow">${
               recipe.time
             }min</div>

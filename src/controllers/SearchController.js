@@ -47,7 +47,7 @@ class SearchController {
 
   createTag(type, value) {
     const tagHTML = `
-      <div class="tag-view inline-flex items-center p-4 m-1 rounded-xl h-[53px] backgroundColor-yellow color-black" data-type="${type}" data-value="${value}">
+      <div class="tag-view inline-flex items-center p-4 mb-12 m-1 rounded-xl h-[53px] backgroundColor-yellow color-black" data-type="${type}" data-value="${value}">
         <span class="tag-content pr-12">${value}</span>
         <span class="tag-close space-x-4 cursor-pointer">X</span>
       </div>
