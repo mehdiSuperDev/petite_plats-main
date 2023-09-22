@@ -5,11 +5,11 @@ class SearchController {
 
     this.searchBarView = new SearchBarView();
     this.cardView = new CardView();
-
-    this.ingredientDropdownView = new DropdownView("ingredient");
-    this.applianceDropdownView = new DropdownView("appliance");
-    this.ustensilsDropdownView = new DropdownView("ustensils");
-
+    this.dropdownViews = {
+      ingredient: new DropdownView("ingredient"),
+      appliance: new DropdownView("appliance"),
+      ustensils: new DropdownView("ustensils"),
+    };
     this.counterView = new CounterView("1500");
   }
 
@@ -18,30 +18,22 @@ class SearchController {
       this.updateModelFromSearchBar.bind(this)
     );
 
-    this.ingredientDropdownView.initEventListeners(
-      this.updateModelFromDropdown.bind(this)
-    );
-    this.applianceDropdownView.initEventListeners(
-      this.updateModelFromDropdown.bind(this)
-    );
-    this.ustensilsDropdownView.initEventListeners(
-      this.updateModelFromDropdown.bind(this)
-    );
+    for (let type in this.dropdownViews) {
+      this.dropdownViews[type].initEventListeners(
+        this.updateModelFromDropdown.bind(this)
+      );
+    }
 
     this.updateModelFromSearchBar("");
-
     this.updateView();
   }
 
   updateModelFromSearchBar(searchText) {
-    const result =
-      searchText.length >= 3
-        ? this.recipeService.search(searchText)
-        : this.recipeService.search("");
-
+    const result = this.recipeService.search(
+      searchText.length >= 3 ? searchText : ""
+    );
     this.model.setRecipes(result.recipes);
     this.model.setSearchText(searchText);
-    this.model.setLocalFilters(result.filters);
     this.updateView();
   }
 
@@ -68,26 +60,24 @@ class SearchController {
 
   removeTag(type, value) {
     this.model.removeTag(type, value);
+    this.updateViewAfterTagChange();
 
     const tagContainer = document.querySelector(".tag-container");
     const tagToRemove = tagContainer.querySelector(
       `[data-type="${type}"][data-value="${value}"]`
     );
     tagToRemove.remove();
-
-    const filteredRecipes = this.model.getRecipes();
-    this.model.updateFiltersFromFilteredRecipes(filteredRecipes);
-
-    this.updateView();
   }
 
   updateModelFromDropdown(selectedType, selectedValue) {
     this.model.setTags(selectedType, selectedValue);
     this.createTag(selectedType, selectedValue);
+    this.updateViewAfterTagChange();
+  }
 
+  updateViewAfterTagChange() {
     const filteredRecipes = this.model.getRecipes();
     this.model.updateFiltersFromFilteredRecipes(filteredRecipes);
-
     this.updateView();
   }
 
@@ -96,9 +86,9 @@ class SearchController {
     this.searchBarView.render(this.model);
     this.cardView.render(filteredRecipes);
 
-    this.ingredientDropdownView.render(this.model);
-    this.applianceDropdownView.render(this.model);
-    this.ustensilsDropdownView.render(this.model);
+    for (let type in this.dropdownViews) {
+      this.dropdownViews[type].render(this.model);
+    }
 
     this.counterView.render(filteredRecipes.length);
   }
