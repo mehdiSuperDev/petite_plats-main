@@ -1,5 +1,3 @@
-// import { recipes } from "../models/Recipes";
-
 class RecipeService {
   allRecipes = [];
 

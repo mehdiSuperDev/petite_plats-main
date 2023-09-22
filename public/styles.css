@@ -43,21 +43,37 @@
   background-color: #FFD15B;
 }
 
+/**/
+
 h1 {
-  @apply text-[42px] font-custom-anton color-yellow;
+  /* @apply text-[42px] font-custom-anton color-yellow; */
+
+  font-size: 42px;
+  font-family: 'Anton', sans-serif;
+  color: #FFD15B;
   line-height: 125%;
 }
 
 h2 {
-  @apply text-[18px] font-custom-anton;
+  /* @apply text-[18px] font-custom-anton; */
+  font-size: 18px;
+  font-family: 'Anton', sans-serif;
 }
 
 h3 {
-  @apply text-[12px] font-custom-manrope-bold color-grey;
+  /* @apply text-[12px] font-custom-manrope-bold color-grey; */
+  font-size: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;  /* Bold */
+  color: #7A7A7A;
 }
 
 p {
-  @apply text-[14px] font-custom-manrope color-black;
+  /* @apply text-[14px] font-custom-manrope color-black; */
+  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300; /* lighter */
+  color: #1B1B1B;
 }
 
 body {
@@ -67,28 +83,33 @@ body {
 /* Card */
 
 .card {
-  @apply max-w-sm shadow-xl rounded-2xl;
+  /* @apply max-w-sm shadow-xl rounded-2xl; */
   box-shadow: 0 0 34px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .card-image-container {
-  @apply relative mb-4;
+  /* @apply relative mb-4; */
 }
 
 .timer {
-  @apply rounded-md absolute top-4 right-4 p-1 text-[12px] font-custom-manrope backgroundColor-yellow;
+  /* @apply rounded-md absolute top-4 right-4 p-1 text-[12px] font-custom-manrope backgroundColor-yellow; */
 }
 
 .content {
-  @apply flex flex-col gap-4 p-4;
+  /* @apply flex flex-col gap-4 p-4; */
 }
   
+/* A AJOUTER */
 .card-image {
-  @apply h-[253px] w-full object-cover;
+  /* @apply h-[253px] w-full object-cover; */
+  height: 253px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card-description {
-  @apply text-base;
+  /* @apply text-base; */
 
   /* Affichage sur 4 lignes */
   display: -webkit-box;
@@ -99,68 +120,72 @@ body {
 }
 
 .card-elements {
-  @apply grid grid-cols-2 gap-4 p-4;
+  /* @apply grid grid-cols-2 gap-4 p-4; */
 }
 
 .item-title {
-  @apply block color-black;
+  /* @apply block color-black; */
 }
 
 .item-detail {
-  @apply block color-grey;
+  /* @apply block color-grey; */
 }
 
 /* Header */
 .logo {
-  @apply absolute top-4 left-4 w-[50px] h-[50px];
+  /* @apply absolute top-4 left-4 w-[50px] h-[50px]; */
 }
 
 .center-elements {
-  @apply flex flex-col items-center justify-center;
+  /* @apply flex flex-col items-center justify-center; */
 }
 
 .bg-container {
-  @apply relative bg-cover bg-center h-[667px] w-full center-elements;
+  /* @apply relative bg-cover bg-center h-[667px] w-full center-elements; */
   background-image: url('images/cover.jpg');
 }
 
 /* Style pour le titre principal */
 .title-main {
-  @apply text-center py-12;
-  @apply text-5xl font-bold text-white;
+  /* @apply text-center py-12;
+  @apply text-5xl font-bold text-white; */
 }
 
     
 /* SearchBar */
 
 .search-bar {
-  @apply relative flex items-center h-[72px] w-[70%] rounded-xl shadow-xl px-8;
+  /* @apply relative flex items-center h-[72px] w-[70%] rounded-xl shadow-xl px-8; */
   background-color: white;
 }
 
 .search-input {
-  @apply flex-grow h-full rounded-xl text-lg border-black focus:outline-none bg-transparent;
+  /* @apply flex-grow h-full rounded-xl text-lg border-black focus:outline-none bg-transparent; */
 }
 
 .icon-container {
-  @apply flex flex-row items-center justify-end;
+  /* @apply flex flex-row items-center justify-end; */
 }
 
+/* A CHANGER */
 .search-icon:hover {
-  @apply backgroundColor-yellow color-black cursor-pointer;
+  /* @apply backgroundColor-yellow color-black cursor-pointer; */
+  background-color: #FFD15B;
+  color: #1B1B1B;
+  cursor: pointer;
 }
 
 .search-icon,
 .clear-icon {
-  @apply flex items-center justify-center rounded-md;
+  /* @apply flex items-center justify-center rounded-md; */
 }
 
 .search-icon {
-  @apply bg-black text-white w-10 h-10;
+  /* @apply bg-black text-white w-10 h-10; */
 }
 
 .clear-icon {
-  @apply text-black w-16 h-16;
+  /* @apply text-black w-16 h-16; */
 }
 
 .hidden {
@@ -168,48 +193,50 @@ body {
 }
 
 .card-container {
-  @apply p-12 grid grid-cols-3 gap-12 justify-items-center justify-center pt-0;
+  /* @apply p-12 grid grid-cols-3 gap-12 justify-items-center justify-center pt-0; */
 }
 
 /* Menu déroulant */
 
 .dropdown-container {
-  @apply flex space-x-4;
+  /* @apply flex space-x-4; */
 }
 
 .dropdown {
-  @apply w-[200px] relative;
+  /* @apply w-[200px] relative; */
 }
 
 .dropdown-header {
-  @apply font-custom-manrope p-4 rounded-xl flex justify-between items-center cursor-pointer;
+  /* @apply font-custom-manrope p-4 rounded-xl flex justify-between items-center cursor-pointer; */
   background-color: white;
 }
 
 .dropdown-list {
-  @apply p-4 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl;
+  /* @apply p-4 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl; */
 }
 
 .dropdown-list li:hover {
-  @apply backgroundColor-yellow color-black;
+  /* @apply backgroundColor-yellow color-black; */
+  background-color: #FFD15B;
+  color: #1B1B1B;
 }
 
 .search-bar-container {
-  @apply relative;
+  /* @apply relative; */
 }
 
 .clear-icon-dropdown {
-  @apply absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer;
+  /* @apply absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer; */
 }
 
 .search-bar-dropdown {
-  @apply p-2 w-full;
+  /* @apply p-2 w-full; */
   outline: 2px solid #C6C6C6;
   /* DEBUG */
 }
 
 .search-bar-error {
-  @apply font-custom-anton-bold p-4 m-4 rounded-2xl;
+  /* @apply font-custom-anton-bold p-4 m-4 rounded-2xl; */
   color: red;
   background-color: white;
   opacity: 0.8;
@@ -219,25 +246,25 @@ body {
 /* Compteur */
 
 .menu-container {
-  @apply p-12 flex  items-center place-content-between;
+  /* @apply p-12 flex  items-center place-content-between; */
 }
 
 .counter {
-  @apply text-[21px] font-custom-anton-bold color-black;
+  /* @apply text-[21px] font-custom-anton-bold color-black; */
 }
 
 /* Tags */
 
 .tag-container {
-  @apply px-12;
+  /* @apply px-12; */
 }
 
 .tag-view {
-  @apply inline-flex items-center p-4 m-1 rounded-xl h-[53px] backgroundColor-yellow color-black;
+  /* @apply inline-flex items-center p-4 m-1 rounded-xl h-[53px] backgroundColor-yellow color-black; */
 }
 
 .tag-content {
-  @apply pr-12;
+  /* @apply pr-12; */
 }
 
 

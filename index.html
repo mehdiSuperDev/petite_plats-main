@@ -16,55 +16,76 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="public/styles.css" />
   </head>
   <body>
-    <div class="bg-container">
+    <div
+      class="bg-container center-elements flex flex-col items-center justify-center relative bg-cover bg-center h-[667px] w-full center-elements"
+    >
       <!-- Logo -->
-      <img src="public/images/Logo.png" alt="Logo" class="logo" />
+      <img
+        src="public/images/Logo.png"
+        alt="Logo absolute top-4 left-4 w-[50px] h-[50px]"
+        class="logo"
+      />
 
       <!-- Titre principal -->
-      <div class="title-main">
+      <div class="title-main text-center py-12 text-5xl font-bold text-white">
         <h1>
           CHERCHEZ PARMI PLUS DE 1500 RECETTES<br />
           DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
         </h1>
       </div>
-      <div class="search-bar">
+      <div
+        class="search-bar relative flex items-center h-[72px] w-[70%] rounded-xl shadow-xl px-8"
+      >
         <input
           type="text"
           placeholder="Rechercher une recette"
-          class="search-input"
+          class="search-input flex-grow h-full rounded-xl text-lg border-black focus:outline-none bg-transparent"
         />
-        <div class="icon-container">
-          <div class="clear-icon hidden">
+        <div class="icon-container flex flex-row items-center justify-end">
+          <div
+            class="clear-icon flex items-center justify-center rounded-md text-black w-16 h-16 hidden"
+          >
             <i class="fas fa-times"></i>
           </div>
-          <div class="search-icon">
+          <div
+            class="search-icon flex items-center justify-center rounded-md bg-black text-white w-10 h-10"
+          >
             <i class="fas fa-search"></i>
           </div>
         </div>
       </div>
-      <div class="search-bar-error"></div>
+      <div
+        class="search-bar-error font-custom-anton-bold p-4 m-4 rounded-2xl"
+      ></div>
     </div>
 
     <!-- Menu déroulant -->
-    <div class="menu-container">
-      <div class="dropdown-container">
-        <div class="dropdown" data-type="ingredient">
-          <div class="dropdown-header">
+    <div class="menu-container p-12 flex items-center place-content-between">
+      <div class="dropdown-container flex space-x-4">
+        <div class="dropdown w-[200px] relative" data-type="ingredient">
+          <div
+            class="dropdown-header font-custom-manrope p-4 rounded-xl flex justify-between items-center cursor-pointer"
+          >
             <span class="title">Ingrédients</span>
             <i class="fas fa-chevron-down chevron"></i>
           </div>
-          <div class="dropdown-list hidden">
+          <div
+            class="dropdown-list p-4 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl hidden"
+          >
             <!-- Barre de recherche -->
-            <div class="search-bar-container">
+            <div class="search-bar-container relative">
               <input
                 type="text"
                 class="search-bar-dropdown"
                 placeholder="Recherche..."
               />
-              <i class="fas fa-times clear-icon-dropdown hidden"></i>
+              <i
+                class="fas fa-times clear-icon-dropdown absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer hidden"
+              ></i>
               <!-- Icone de la croix -->
             </div>
             <ul class="dropdown-options">
@@ -73,20 +94,27 @@
           </div>
         </div>
 
-        <div class="dropdown" data-type="appliance">
-          <div class="dropdown-header">
+        <!-- appliance -->
+        <div class="dropdown w-[200px] relative" data-type="appliance">
+          <div
+            class="dropdown-header font-custom-manrope p-4 rounded-xl flex justify-between items-center cursor-pointer"
+          >
             <span class="title">Appareils</span>
             <i class="fas fa-chevron-down chevron"></i>
           </div>
-          <div class="dropdown-list hidden">
+          <div
+            class="dropdown-list p-4 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl hidden"
+          >
             <!-- Barre de recherche -->
-            <div class="search-bar-container">
+            <div class="search-bar-container relative">
               <input
                 type="text"
                 class="search-bar-dropdown"
                 placeholder="Recherche..."
               />
-              <i class="fas fa-times clear-icon-dropdown hidden"></i>
+              <i
+                class="fas fa-times clear-icon-dropdown absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer hidden"
+              ></i>
               <!-- Icone de la croix -->
             </div>
             <ul class="dropdown-options">
@@ -95,20 +123,27 @@
           </div>
         </div>
 
-        <div class="dropdown" data-type="ustensils">
-          <div class="dropdown-header">
-            <span class="title">Ustensiles</span>
+        <!-- ustensils -->
+        <div class="dropdown w-[200px] relative" data-type="ustensils">
+          <div
+            class="dropdown-header font-custom-manrope p-4 rounded-xl flex justify-between items-center cursor-pointer"
+          >
+            <span class="title">Ustensils</span>
             <i class="fas fa-chevron-down chevron"></i>
           </div>
-          <div class="dropdown-list hidden">
+          <div
+            class="dropdown-list p-4 max-h-[200px] overflow-y-auto bg-white absolute z-10 w-full rounded-xl hidden"
+          >
             <!-- Barre de recherche -->
-            <div class="search-bar-container">
+            <div class="search-bar-container relative">
               <input
                 type="text"
                 class="search-bar-dropdown"
                 placeholder="Recherche..."
               />
-              <i class="fas fa-times clear-icon-dropdown hidden"></i>
+              <i
+                class="fas fa-times clear-icon-dropdown absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer hidden"
+              ></i>
               <!-- Icone de la croix -->
             </div>
             <ul class="dropdown-options">
@@ -118,18 +153,20 @@
         </div>
       </div>
 
-      <div class="counter">
+      <div class="counter text-[21px] font-custom-anton-bold color-black">
         <!-- Injection du compteur -->
       </div>
     </div>
 
     <!-- Tags -->
-    <div class="tag-container">
+    <div class="tag-container px-12">
       <!-- Injection des tags -->
     </div>
 
     <!-- Cartes -->
-    <div class="card-container">
+    <div
+      class="card-container p-12 grid grid-cols-3 gap-12 justify-items-center justify-center pt-0"
+    >
       <!-- Injection des cartes -->
     </div>
 
