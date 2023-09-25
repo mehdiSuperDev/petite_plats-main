@@ -6,22 +6,32 @@ class RecipeService {
   }
 
   search(query) {
-    let result = this.allRecipes.filter((recipe) => {
-      // Recherche dans le titre de la recette
-      const nameMatch = recipe.name.toLowerCase().includes(query.toLowerCase());
+    let result = [];
+    for (let i = 0; i < this.allRecipes.length; i++) {
+      let recipe = this.allRecipes[i];
 
-      // Recherche dans la description de la recette
-      const descriptionMatch = recipe.description
-        .toLowerCase()
-        .includes(query.toLowerCase());
+      const nameMatch =
+        recipe.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
 
-      // Recherche dans la liste des ingrédients de la recette
-      const ingredientMatch = recipe.ingredients.some((ingredient) =>
-        ingredient.ingredient.toLowerCase().includes(query.toLowerCase())
-      );
+      const descriptionMatch =
+        recipe.description.toLowerCase().indexOf(query.toLowerCase()) !== -1;
 
-      return nameMatch || descriptionMatch || ingredientMatch;
-    });
+      let ingredientMatch = false;
+      for (let j = 0; j < recipe.ingredients.length; j++) {
+        let ingredient = recipe.ingredients[j];
+        if (
+          ingredient.ingredient.toLowerCase().indexOf(query.toLowerCase()) !==
+          -1
+        ) {
+          ingredientMatch = true;
+          break;
+        }
+      }
+
+      if (nameMatch || descriptionMatch || ingredientMatch) {
+        result.push(recipe);
+      }
+    }
 
     return {
       recipes: !query ? this.allRecipes : result,
